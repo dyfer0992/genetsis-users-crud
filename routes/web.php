@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/', 'Users\UserController@signUp')->name('form');
+Route::post('/registro', 'Users\UserController@store')->name('store');

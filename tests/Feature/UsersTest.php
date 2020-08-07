@@ -2,19 +2,18 @@
 
 namespace Tests\Feature;
 
+use App\Domain\Users\User;
 use Tests\TestCase;
 
-class ExampleTest extends TestCase
+class UsersTest extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testBasicTest()
+    /** @test */
+    public function get_all_users()
     {
-        $response = $this->get('/');
+        factory(User::class)->times(5)->create();
 
-        $response->assertStatus(200);
+        $this->json('GET', '/api/v1/usuarios')
+            ->assertStatus(200)
+            ->assertJsonCount(5, 'data');
     }
 }
