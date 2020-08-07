@@ -1,0 +1,11 @@
+version: '3.4'
+services:
+  mysql:
+    image: mysql:5.7
+    ports:
+      - 33060:3306
+    environment:
+      MYSQL_DATABASE: genetsis
+      MYSQL_USER: genetsis
+      MYSQL_PASSWORD: genetsis
+      MYSQL_ROOT_PASSWORD: genetsis
